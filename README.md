@@ -19,7 +19,7 @@
   显卡：      无要求  <br>
   磁盘：      256GB  <br>
   python环境：python3.8.10  <br>
-  必要库：    numpy1.24.4、opencv-python4.5.5.64、metavision_sdk_core、metavision_core.event_io  <br>
+  必要库：    numpy1.24.4、opencv-python4.5.5.64、metavision_sdk_core、metavision_core.event_io、metavision_sdk_cv、metavision_hal   <br>
 注：最低配置尚未实测，仅展示测试平台环境  <br>
 ### 1.1.4 使用说明
 
@@ -35,9 +35,19 @@
   显卡：      无要求  <br>
   磁盘：      256GB  <br>
   python环境：python3.8.10  <br>
-  必要库：    numpy1.24.4、opencv-python4.5.5.64、metavision_sdk_core、metavision_core.event_io  <br>
+  必要库：    numpy1.24.4、opencv-python4.5.5.64、metavision_sdk_core、metavision_core.event_io、metavision_sdk_cv、metavision_hal  <br>
 注：最低配置尚未实测，仅展示测试平台环境  <br>
 ### 1.2.4 使用说明
+```mermaid
+graph TD;
+    Dynamic Visual Sensor(Event Camera)-->data stream processing;
+    data stream processing-->This Module;
+    This Module-->Automatic Control;
+```
+#### 1.2.4.1 输入
+  该代码块用在
+### 1.2.5 性能
+  
 
 ## 2 基于频率特征点检测信息发端的上位机使用说明
 ### 2.1 项目简介
