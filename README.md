@@ -19,7 +19,7 @@
   该上位机软件可设置上位机串口通信各项参数，将底层通信指令（自主设计通信协议格式）转化为可视化、图形化语言，发送给嵌入式系统。上位机会根据输入信息自行计算系统指标，如最大信息量（Number of Pattern）、基于频率进行信源编码和调制、编码信息发送。
 2.3 运行环境（建议配置）
   操作系统：  Windows11 64-bit
-  处理器：    Intel Core 17-13700H @5GHz or AMD Ryzen 7 7840HS 8-core @5.1GHz
+  处理器：    Intel Core 17-13700H @2.4GHz or AMD Ryzen 7 7840HS 8-core @3.8GHz
   内存：      16GB
   显卡：      无要求
   磁盘：      256GB
@@ -30,5 +30,4 @@
 ![image](https://github.com/csqNULL/project_EventCamera/assets/107977229/89d8522a-baf6-42e1-9ff0-cd4851b3d357)
   上位机软件界面如图所示
 ![image](https://github.com/csqNULL/project_EventCamera/assets/107977229/b05cebf6-e46e-4172-b37c-0ae033850f93)
-
   左上角是串口设置，下拉窗口可分别选择串口端口、波特率、数据位、停止位和校验位。用户可自行设置串口各参数设置，并点击下方按钮检测当前可连接的串口，并点击“打开串口”来打开该串口，使其进入连接状态。
