@@ -117,16 +117,23 @@ graph TD;
   必要外设：  USB转串口模块  <br>
 注：最低配置尚未实测，仅展示测试平台环境  <br>
 ### 2.4 使用说明
-  ![image](https://github.com/csqNULL/project_EventCamera/assets/107977229/89d8522a-baf6-42e1-9ff0-cd4851b3d357)  <br>
+<div align="center">
+	<img src="https://github.com/csqNULL/project_EventCamera/assets/107977229/89d8522a-baf6-42e1-9ff0-cd4851b3d357" width="50%">
+</div>
   上位机软件界面如图所示。  <br>
-  ![image](https://github.com/csqNULL/project_EventCamera/assets/107977229/cfea3759-744b-44d5-9d02-e193ffbe9d99)  
-  ![image](https://github.com/csqNULL/project_EventCamera/assets/107977229/c32c4852-26c4-449f-bb25-c32d8b0f1418)  <br>
+<div align="center">
+	<img src="https://github.com/csqNULL/project_EventCamera/assets/107977229/cfea3759-744b-44d5-9d02-e193ffbe9d99" width="20%">
+</div>
+<div align="center">
+	<img src="https://github.com/csqNULL/project_EventCamera/assets/107977229/c32c4852-26c4-449f-bb25-c32d8b0f1418" width="50%">
+</div>
   
   左上角是**串口设置**，下拉窗口可分别选择`串口端口`、`波特率`、`数据位`、`停止位`和`校验位`。用户可自行设置串口各参数设置，并点击下方按钮检测当前可连接的串口，并点击`打开串口`来打开该串口，使其进入连接状态。  <br>
-  ![image](https://github.com/csqNULL/project_EventCamera/assets/107977229/62815659-5f00-427e-856e-55dfc3733975)   <br>
   
   下面是**接收设置**和**发送设置**，接收可设置`Hex接受`、`显示时间戳`和`自动换行`，便于用户查看接受命令，点击`清空接收`即可清空接收窗口内容；发送设置可设置为`Hex发送`和`自动发送`，其中自动发送需要输入发送时间间隔，该间隔不能过小。  <br>
-  ![image](https://github.com/csqNULL/project_EventCamera/assets/107977229/5332a91c-ada6-4a48-8313-354b402cb672)   <br>
+<div align="center">
+	<img src="https://github.com/csqNULL/project_EventCamera/assets/107977229/5332a91c-ada6-4a48-8313-354b402cb672" width="20%">
+</div>
   
   编码设置可配置频率编码位数和编码进制，默认为四位一进制编码，即四个顶点频率分别为：顶点1 = 1kHz、顶点2 = 2kHz、顶点3 = 3kHz、顶点4 = 4kHz。全部频率配置如下  <br>
 | 编码位数   | 编码进制   |   顶点1    |  顶点2    |  顶点3   |   顶点4 |
@@ -135,14 +142,23 @@ graph TD;
 |      4     |     2     |    {1kHz,1.5kHz}   |    {2kHz,2.5kHz}   |    {3kHz,3.5kHz}  |    {4kHz,4.5kHz}    |
 |      4     |     3     |    {1kHz,1.35kHz,1.7kHz}   |    {2kHz,2.35kHz,2.7kHz}   |    {3kHz,3.35kHz,3.7kHz}  |    {4kHz,4.35kHz,4.7kHz}    |
 |      4     |     4     |{1kHz,1.25kHz,1.5kHz,1.75kHz}|{2kHz,2.25kHz,2.5kHz,2.75kHz}| {3kHz,3.25kHz,3.5kHz,3.75kHz} | {4kHz,4.25kHz,4.5kHz,4.75kHz}|
-![image](https://github.com/csqNULL/project_EventCamera/assets/107977229/ab9b10ab-ea44-4ee3-a71f-05213a8a49fa)  <br>
+
+<div align="center">
+	<img src="https://github.com/csqNULL/project_EventCamera/assets/107977229/fa780b99-cb7b-41cf-8991-af7aef51fd17" width="30%">
+</div>
 
   中间模块是**编码设置**，可以设置`频率编码位数`、`频率编码进制`，进而自动计算其`信息容量`，即信息图样的个数。  <br>
   下面是**编码内容输入模块**，用户可以在`编码内容`内输入想要编码的码型，但不能超过信息容量，否则会提示错误。  <br>
-  ![image](https://github.com/csqNULL/project_EventCamera/assets/107977229/d4ee792d-8ef5-4003-8d10-55b8737adaa4)  <br>
+<div align="center">
+	<img src="https://github.com/csqNULL/project_EventCamera/assets/107977229/d4ee792d-8ef5-4003-8d10-55b8737adaa4" width="20%">
+</div>
+
   用户可以自行选择输入的进制模式，可选`二进制`、`十进制`、`十六进制`；同理，编码结果可选`二进制`和`十六进制`。  <br>
   右上角的表格展示了根据用户输入的编码内容进行频率编码后的频率与码元对应表，下图所示的一个示例，其编码内容为0b11。  <br>
-  ![image](https://github.com/csqNULL/project_EventCamera/assets/107977229/e11a0907-5b13-497a-9139-980b6375591e)  <br>
+<div align="center">
+	<img src="https://github.com/csqNULL/project_EventCamera/assets/107977229/e11a0907-5b13-497a-9139-980b6375591e" width="30%">
+</div>
+
   输入编码内容并成功进行编码后，即可点击`发送`来发送数据，此处可以通过勾选`发送新行`来使发送指令附带一个换行符，该指令对收端没有影响。
   ### 2.5 非常规过程
   暂无  <br>
