@@ -1,4 +1,4 @@
-![image](https://github.com/csqNULL/project_EventCamera/assets/107977229/abe5f3ba-27e5-48b7-981a-ba8e3cfeb3c6)# project_EventCamera
+# project_EventCamera
 
 该文档用途：
 1 说明基于事件相机进行机器视觉标记识别与位姿估计代码模块使用方法
@@ -28,4 +28,7 @@
 注：最低配置尚未实测，仅展示测试平台环境
 2.4 使用说明
 ![image](https://github.com/csqNULL/project_EventCamera/assets/107977229/89d8522a-baf6-42e1-9ff0-cd4851b3d357)
-上位机软件界面如如图所示
+  上位机软件界面如图所示
+![image](https://github.com/csqNULL/project_EventCamera/assets/107977229/b05cebf6-e46e-4172-b37c-0ae033850f93)
+
+  左上角是串口设置，下拉窗口可分别选择串口端口、波特率、数据位、停止位和校验位。用户可自行设置串口各参数设置，并点击下方按钮检测当前可连接的串口，并点击“打开串口”来打开该串口，使其进入连接状态。
