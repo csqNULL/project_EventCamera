@@ -29,5 +29,7 @@
 2.4 使用说明
 ![image](https://github.com/csqNULL/project_EventCamera/assets/107977229/89d8522a-baf6-42e1-9ff0-cd4851b3d357)
   上位机软件界面如图所示
-![image](https://github.com/csqNULL/project_EventCamera/assets/107977229/b05cebf6-e46e-4172-b37c-0ae033850f93)
   左上角是串口设置，下拉窗口可分别选择串口端口、波特率、数据位、停止位和校验位。用户可自行设置串口各参数设置，并点击下方按钮检测当前可连接的串口，并点击“打开串口”来打开该串口，使其进入连接状态。
+  ![image](https://github.com/csqNULL/project_EventCamera/assets/107977229/63765b52-c9ef-4a54-b7a8-a00a22619c98)
+  下面是接收设置和发送设置，接收可设置Hex接受、显示时间戳和自动换行，便于用户查看接受命令，点击清空接收即可清空接收窗口内容；发送设置可设置为Hex发送和自动发送，其中自动发送需要输入发送时间间隔，该间隔不能过小。
+  
