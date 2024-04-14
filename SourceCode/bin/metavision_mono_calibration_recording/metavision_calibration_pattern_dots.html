@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Event-based camera calibration pattern</title>
+  <style type="text/css">
+    html {
+      margin: 0;
+    }
+
+    body {
+      margin: 0;
+      overflow: hidden;
+      height: inherit;
+    }
+
+    #fps {
+      font-family: 'arial';
+      font-size: 18pt;
+      z-index: 0;
+      padding: 2px;
+    }
+
+    button {
+      font-family: 'arial';
+      font-size: 16pt;
+      padding: 2px 10px 2px 10px;
+      margin: 2px;
+    }
+
+    canvas {
+      position: absolute;
+      z-index: -1;
+      left: 0;
+      top: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <button onclick="start_pause_animation()"> Pause/start </button>
+  <span id='fps'>Xfps</span>
+  <canvas></canvas>
+  <script type="text/javascript">
+    // Get some parameters from the URL "http://...html&rows=X&cols=Y&r="
+    const url_params = new URLSearchParams(window.location.search);
+    const n_rows = url_params.has('rows') ? parseInt(url_params.get('rows')) : 7
+    const n_cols = url_params.has('cols') ? parseInt(url_params.get('cols')) : 10
+    const radius = url_params.has('cols') ? parseInt(url_params.get('r')) : 10
+
+    // Fixed parameters.
+    const color_1 = 'white'
+    const color_2 = 'black'
+    const bg_color = 'rgb(192, 192, 192)'
+
+    const canvas = document.querySelector('canvas')
+    const ctx = canvas.getContext('2d');
+    const fps_div = document.getElementById('fps');
+
+    // Draw a single circle.
+    function draw_circle(x, y, radius, color) {
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, 2 * Math.PI, false);
+      ctx.fillStyle = color;
+      ctx.fill();
+      ctx.lineWidth = 1;
+      ctx.strokeStyle = color;
+      ctx.stroke();
+    }
+
+    // Draw the whole (static) pattern once.
+    function draw_pattern(n_rows, n_cols, radius, normal_color, special_color) {
+      const width = canvas.width = window.innerWidth;
+      const height = canvas.height = window.innerHeight;
+
+      // Fill the background.
+      ctx.fillStyle = bg_color;
+      ctx.fillRect(0, 0, width, height);
+
+      // Compute steps and padding.
+      step_px = Math.min(height / (n_rows + 0.25), width / (n_cols + 0.25))
+      offset_x = (width - ((n_cols - 1) * step_px)) / 2
+      offset_y = (height - ((n_rows - 1) * step_px)) / 2
+
+      // Actual drawing.
+      for (row = 0; row < n_rows; row++) {
+        for (col = 0; col < n_cols; col++) {
+          const color = ((row == 0) ? special_color : normal_color)
+          draw_circle(col * step_px + offset_x, row * step_px + offset_y, radius, color)
+        }
+      }
+    }
+
+    function animate(current_ts) {
+
+      // Compute blinking frequency, rounded to 3 decimal figures.
+      elapsed_time = current_ts - last_ts
+      last_ts = current_ts
+      frequency = Math.round(1e3 / (2 * elapsed_time))
+      if (frequency != last_frequency) {
+        fps_div.textContent = "Unstable frequency"
+      } else {
+        fps_div.textContent = "Normal freq: " + frequency /2 + "Hz, special freq:" + frequency + "Hz"
+      }
+      last_frequency = frequency
+
+      // Special color changes every animation period;
+      // normal color changes every two animation periods.
+      if (special_color == color_1) {
+        special_color = color_2
+      } else {
+        special_color = color_1
+        normal_color = (normal_color == color_1 ? color_2 : color_1)
+      }
+      draw_pattern(n_rows, n_cols, radius, normal_color, special_color)
+
+      request_animation_id = requestAnimationFrame(animate);
+    }
+
+    function start_pause_animation() {
+      if (request_animation_id == 0) {
+        animate(last_ts)
+      } else {
+        cancelAnimationFrame(request_animation_id)
+        request_animation_id = 0
+        // When pausing, make sure we draw the pattern one last time.
+        draw_pattern(n_rows, n_cols, radius, color_2, color_2)
+      }
+    }
+
+    // Start the animation.
+    let normal_color = color_1
+    let special_color = color_1
+    let last_ts = 0
+    let last_frequency = 0
+    let request_animation_id = 0
+    animate(last_ts)
+  </script>
+</body>
+
+</html>
